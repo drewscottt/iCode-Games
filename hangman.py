@@ -4,7 +4,7 @@
     Description: A hangman game for 2 people.
 
     Important concepts to know before: if statements, loops, input, functions
-    What's learned: lists
+    What's learned: lists, strings
 '''
 
 def convert_to_blanks(s):

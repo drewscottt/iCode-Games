@@ -4,7 +4,7 @@
     Description: Cipher guessing game for 2 people.
 
     Important concepts to know before: if statements, loops, input, functions
-    What's learned: lists, dictionaries, ASCII
+    What's learned: lists, dictionaries, strings, ASCII
 '''
 
 import random
