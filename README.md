@@ -1,4 +1,5 @@
-Concepts in these games: if-statements, loops, functions, and input
+Concepts in these games: if-statements, loops, functions, and input.
+
 Then, each one adds a new topic, after the first.
 
 1) guess_number: Generates a random number, then the user can guess the number, learning if it's too high or too low with each guess. Other interesting options are available, such as 'bounds' and 'guesses'.

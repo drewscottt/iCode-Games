@@ -80,6 +80,31 @@ def update_user_guess(user_guess, encoded, map_from, map_to):
 
     return new_user_guess
 
+def get_counts_str(encoded):
+    '''
+        Returns a string of the frequency of each letter in encoded string
+    '''
+
+    # create counts dict
+    counts = {}
+    for c in encoded:
+        if not c.isalpha():
+            continue
+
+        if c in counts.keys():
+            counts.update({c : counts.get(c) + 1})
+        else:
+            counts.update({c : 1})
+
+    # create counts string
+    counts_str = 'Counts: '
+    for c in counts.keys():
+        counts_str += f"{c}: {counts.get(c)}, "
+
+    counts_str = counts_str[:-2]
+
+    return counts_str
+
 def main():
     # set up cipher
     letters = get_letters()
@@ -100,11 +125,12 @@ def main():
     while user_guess_str != target_lower:
         # get mapping
         mapping = input(f"{user_guess_str}\n{encoded_str}\nEnter a mapping: ")
-        if not is_valid_mapping(mapping):
-            print("Invalid mapping. Correct format: 'a b'")
-            continue
-
-        user_guess_str = update_user_guess(user_guess_str, encoded_str, mapping[0], mapping[2])
+        if mapping == "counts":
+            print(get_counts_str(encoded_str))
+        elif is_valid_mapping(mapping):
+            user_guess_str = update_user_guess(user_guess_str, encoded_str, mapping[0], mapping[2])
+        else:
+            print("Invalid mapping. Correct format: 'a b'. Or 'counts'")
 
     print(f"You got it!\n{target}")
 
